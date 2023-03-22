@@ -1,0 +1,20 @@
+{
+  "name": "app-desktop",
+  "description": "app-desktop",
+  "version": "0.0.0",
+  "main": "main.js",
+  "scripts": {
+    "electron": "electron",
+    "start": "concurrently \"npm run build -c development -- -w\" \"electron ./dist/main.js --serve\"",
+    "build": "tsc -p tsconfig.serve.json",
+    "release": "npm run build -c production"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "electron": "^23.1.4",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "electron-debug": "^3.2.0"
+  }
+}

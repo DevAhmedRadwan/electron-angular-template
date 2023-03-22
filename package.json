@@ -1,0 +1,29 @@
+{
+  "name": "electron-angular-template",
+  "version": "0.0.0",
+  "description": "electron-angular-template",
+  "author": "Radwan",
+  "main": "./electron-app/dist/main.js",
+  "scripts": {
+    "angular:serve": "cd angular-app/ && npm run start",
+    "electron:serve": "cd electron-app/ && wait-on tcp:4200 && npm run start",
+    "serve": "npm-run-all -p angular:serve electron:serve",
+    "start": "npm run serve",
+    "angular:build": "cd angular-app/ && npm run build -- --base-href ./",
+    "electron:build": "cd electron-app/ && npm run build",
+    "build": "npm-run-all -p angular:build electron:build",
+    "angular:release": "cd angular-app/ && npm run release -- --base-href ./",
+    "electron:release": "cd electron-app/ && npm run release",
+    "release": "npm-run-all -p angular:release electron:release",
+    "package": "electron-builder build --publish=never"
+  },
+  "devDependencies": {
+    "electron": "^23.1.4",
+    "electron-builder": "^23.6.0",
+    "npm-run-all": "^4.1.5",
+    "wait-on": "^7.0.1"
+  },
+  "dependencies": {
+    "electron-reloader": "^1.2.3"
+  }
+}
